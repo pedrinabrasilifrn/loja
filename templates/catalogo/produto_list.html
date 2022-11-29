@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+    <h1>Lista de Produtos</h1>
+    <ul class="container list-unstyled">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for p in object_list %}
+            <li class="col">
+                <div class="card shadow-sm">
+                <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{p.foto.url}}"/>
+                
+                <div class="card-body">
+                    <p class="card-text"> {{ p.descricao }}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    </div>                    
+                    </div>
+                </div>
+                </div>
+            </li>
+            {% empty %}
+            <li>
+                <p>Não há produtos cadastrados.</p>
+            </li>
+            {% endfor %}
+        </div>
+    </ul>
+        
+            
+    
+{% endblock %}
