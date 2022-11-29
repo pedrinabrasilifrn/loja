@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 
 {% block conteudo %}
-    <h1>Lista de Produtos</h1>
+    {% if tipo_sel %}
+        <h1>Lista de {{tipo_sel}}</h1>
+    {% else %}
+        <h1>Lista de Produtos</h1>
+    {% endif %}
     <ul class="container list-unstyled">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             {% for p in object_list %}
@@ -27,7 +31,4 @@
             {% endfor %}
         </div>
     </ul>
-        
-            
-    
 {% endblock %}

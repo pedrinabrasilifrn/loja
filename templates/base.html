@@ -28,8 +28,12 @@
             <!-- Menu Lateral -->
             {% block sidebar %}
             <ul class="sidebar-nav">
-              <li><a href="{% url 'index' %}">Início</a></li>
-              <li><a href="{% url 'produtos' %}">Produtos</a></li>
+              <li><a href="{% url 'produtos' %}">Todos</a></li>
+              {% for t in tipos %}
+              <li>
+                <li><a href="{% url 'produtos' tipo_id=t.id %}">{{t.descricao}}</a></li>
+              </li>
+              {% endfor %}
             </ul>
             {% endblock %}
           </div>
